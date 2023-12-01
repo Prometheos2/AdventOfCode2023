@@ -1,0 +1,35 @@
+select = [
+	"F",    # Pyflakes
+	"W",    # pycodestyle warnings
+	"E",    # pycodestyle errors
+	"I",    # isort
+	"UP",   # pyupgrade
+	"B",    # flake8-bugbear
+	"A",    # flake8-builtins
+	"C4",   # flake8-comprehensions
+	"FA",   # flake8-future-annotations
+	"ISC",  # flake8-implicit-str-concat 
+	"ICN",  # flake8-import-conventions
+	"PIE",  # flake8-pie           # Misc. unneeded or duplicated elements
+	"PT",   # flake8-pytest-style
+	"RET",  # flake8-return
+	"SIM",  # flake8-simplify
+	"TID",  # flake8-tidy-imports
+	"TCH",  # flake8-type-checking # libraries only invoked for type annotations
+	"INT",  # flake8-gettext 
+	"PTH",  # flake8-use-pathlib   # Use pathlib over os/inbuilt
+	"PL",   # Pylint 
+	"TRY",  # tryceratops          # Exceptions
+	"FLY",  # flynt                # str join alternatives
+	"PERF", # Perflint 
+	"FURB", # refurb 
+	"RUF",  # Ruff-specific rules
+]
+
+include = ["*.py", "*.pyi", "pyproject.toml", "rust.toml"]
+ignore = [
+	"E501", # "Line too long"; if Black doesn't fix it, we don't really care
+	"W191", # I like my tabs
+]
+target-version = "py311"
+isort.force-single-line = true
