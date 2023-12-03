@@ -1,25 +1,26 @@
 from pathlib import Path
 
+# Ordered so any "eightwo" is properly converted to "8wo"
 REPLACEMENT_TABLE: dict = {
-    "one": "1",
+    "threeight": "3",  # edge case
+    "eightwo": "8",  # edge case
     "two": "2",
+    "one": "1",
+    "five": "5",
+    "seven": "7",
+    "nine": "9",
+    "eight": "8",
     "three": "3",
     "four": "4",
-    "five": "5",
     "six": "6",
-    "seven": "7",
-    "eight": "8",
-    "nine": "9",
 }
 
 
 # Non functional; "too small"
 def proposal_no1(input_file: str) -> int:
     for criteria in REPLACEMENT_TABLE:
-        # eightwo => 8eight2two, to avoid eightwo => eigh2 (which is incorrect)
-        input_file = input_file.replace(
-            criteria, criteria + REPLACEMENT_TABLE[criteria]
-        )
+
+        input_file = input_file.replace(criteria, REPLACEMENT_TABLE[criteria])
 
     res = 0
     lines: list[str] = input_file.splitlines()
